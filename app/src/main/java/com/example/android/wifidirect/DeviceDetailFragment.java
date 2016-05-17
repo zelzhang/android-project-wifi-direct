@@ -39,6 +39,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.android.audio_trimmer.CheapSoundFile;
+import com.example.android.audio_trimmer.Util;
 import com.example.android.wifidirect.DeviceListFragment.DeviceActionListener;
 
 import java.io.BufferedReader;
@@ -75,6 +77,8 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
     public static boolean isGroupOwner = false;
     private boolean groupIpsChanged = false;
     private boolean isIpv4 = true;
+    private double startTime = 5.0;
+    private double endTime = 10.0;
     private String splitString = "-";
 
 
@@ -315,10 +319,28 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         // User has picked an image. Transfer it to group owner i.e peer using
         // FileTransferService.
         Uri uri = data.getData();
+
         TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
         statusText.setText("Sending: " + uri);
-        Log.d(WiFiDirectActivity.TAG, "Sending: " + uri);
-        Log.d(WiFiDirectActivity.TAG, "Sending: " + uri.toString());
+        Log.d(WiFiDirectActivity.TAG, "Sending: " + data.getDataString());
+        Log.d(WiFiDirectActivity.TAG, "Sending: " + uri.getPath());
+        Log.d(WiFiDirectActivity.TAG, "Sending: context = " + getActivity().getApplicationContext());
+
+
+        String pin = Utility.getRealPathFromURI(getActivity().getApplicationContext(), uri);
+        Log.d(WiFiDirectActivity.TAG, "Sending: pin = " + pin);
+        File fin = new File(pin);
+        Log.d(WiFiDirectActivity.TAG, "fin exist = " + fin.exists());
+        File fout = new File(Utility.changeTmpPath(pin));
+        trimAudio(fin, fout, startTime, endTime);
+        Log.d(WiFiDirectActivity.TAG, "fout exist = " + fout.exists());
+
+
+        uri = Uri.fromFile(fout);
+        Log.d(WiFiDirectActivity.TAG, "Sending tmp: " + uri);
+        Log.d(WiFiDirectActivity.TAG, "Sending tmp: " + uri.toString());
+
+
         Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
         serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
         serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
@@ -461,7 +483,29 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         Log.d(WiFiDirectActivity.TAG, "new ipsNum = " + ipsNum);
         groupIpsChanged = true;
     }
+    public void trimAudio(File inputFile, File outputFile, double startTime, double endTime){
+        CheapSoundFile.ProgressListener listener = new CheapSoundFile.ProgressListener() {
+            public boolean reportProgress(double frac) {
 
+                return true;
+            }
+        };
+        try{
+            CheapSoundFile cheapSoundFile = CheapSoundFile.create(inputFile, listener);
+
+            int mSampleRate = cheapSoundFile.getSampleRate();
+
+            int mSamplesPerFrame = cheapSoundFile.getSamplesPerFrame();
+
+            int startFrame = Util.secondsToFrames(startTime,mSampleRate, mSamplesPerFrame);
+
+            int endFrame = Util.secondsToFrames(endTime, mSampleRate, mSamplesPerFrame);
+
+            cheapSoundFile.WriteFile(outputFile, startFrame, endFrame-startFrame);
+        }catch(Exception e){
+
+        }
+    }
     /**
      * A simple server socket that accepts connection and writes some data on
      * the stream.
@@ -473,12 +517,6 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         private int type; // type defined in Utility
         ServerSocket serverSocket;
 
-        private boolean isIncluded(String[] strArr, String str){
-            for(int i = 0; i<strArr.length; i++){
-                if(str.equals(strArr[i])) return true;
-            }
-            return false;
-        }
 
         public void forwardFile(Uri uri, String dstIp, boolean isGroupOwner) {
 
@@ -519,7 +557,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
             try {
                 Log.d(WiFiDirectActivity.TAG, "Server: before socket open");
                 serverSocket = new ServerSocket(Utility.port_num);
-                Log.d(WiFiDirectActivity.TAG, "Server: Socket opened in port "+Utility.port_num);
+                Log.d(WiFiDirectActivity.TAG, "Server: Socket opened in port " + Utility.port_num);
                 Socket client = serverSocket.accept();
                 Log.d(WiFiDirectActivity.TAG, "Server: connection done");
 

@@ -1,12 +1,14 @@
 package com.example.android.wifidirect;
 
-import android.media.AudioFormat;
+import android.content.Context;
+import android.content.CursorLoader;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 
-import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.sound.sampled.*;
 
 //import org.apache.http.conn.util.InetAddressUtils;
 
@@ -77,21 +79,6 @@ public class Utility{
     }
 
 
-    /*
-    public static String invalidCharEliminator(String oldString){
-        String newString = "";
-        char c;
-        for(int i=0; i<oldString.length(); i++){
-            c = oldString.charAt(i);
-            if(c == '.' || c== ' ') newString += c;
-            else if(c-'0' >=0 && c-'0'<=9) newString += c;
-            else if(c-'a' >=0 && c-'a'<=26) newString += c;
-            else if(c-'A' >=0 && c-'A'<=26) newString += c;
-        }
-        return newString;
-    }
-    */
-
     public static String[] splitString(String oldString, String splitter){
         char splitterChar = splitter.charAt(0);
         String newString = "";
@@ -103,30 +90,25 @@ public class Utility{
         }
         return newString.split("[\r\n]+");
     }
-
-    /*
-    public static void copyAudio(String sourceFileName, String destinationFileName, int startSecond, int secondsToCopy) {
-
-        AudioInputStream inputStream = null;
-        AudioInputStream shortenedStream = null;
-
+    public static String changeTmpPath(String originalPath){
+        String[] strings = originalPath.split("\\.");
+        Log.d("Utility", "changeTmpPath = " + originalPath);
+        if(strings.length == 2)return strings[0]+"_tmp."+strings[1];
+        else if(strings.length == 1) return  strings[0]+"_tmp";
+        else return null;
+    }
+    public static String getRealPathFromURI(Context context, Uri contentUri) {
+        Cursor cursor = null;
         try {
-            File file = new File(sourceFileName);
-            AudioFileFormat fileFormat = AudioSystem.getAudioFileFormat(file);
-            AudioFormat format = fileFormat.getFormat();
-            inputStream = AudioSystem.getAudioInputStream(file);
-            int bytesPerSecond = format.getFrameSize() * (int)format.getFrameRate();
-            inputStream.skip(startSecond * bytesPerSecond);
-            long framesOfAudioToCopy = secondsToCopy * (int)format.getFrameRate();
-            shortenedStream = new AudioInputStream(inputStream, format, framesOfAudioToCopy);
-            File destinationFile = new File(destinationFileName);
-            AudioSystem.write(shortenedStream, fileFormat.getType(), destinationFile);
-        }catch (Exception e) {
-            System.out.println(e);
-        }finally {
-            if (inputStream != null) try { inputStream.close(); } catch (Exception e) { System.out.println(e); }
-            if (shortenedStream != null) try { shortenedStream.close(); } catch (Exception e) { System.out.println(e); }
+            String[] proj = { MediaStore.Images.Media.DATA };
+            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
     }
-    */
 }
