@@ -263,14 +263,7 @@
                     "endOffset": 106
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/colors.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 108,
-                        "endColumn": 55,
-                        "endOffset": 159
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/colors.xml"
                 }
             },
             {
@@ -282,14 +275,7 @@
                     "endOffset": 159
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/colors.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 52,
-                        "endOffset": 103
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/colors.xml"
                 }
             },
             {
@@ -301,14 +287,7 @@
                     "endOffset": 209
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/dimens.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 712,
-                        "endColumn": 49,
-                        "endOffset": 757
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/dimens.xml"
                 }
             },
             {
@@ -320,14 +299,7 @@
                     "endOffset": 259
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/dimens.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 662,
-                        "endColumn": 49,
-                        "endOffset": 707
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/dimens.xml"
                 }
             },
             {
@@ -339,14 +311,7 @@
                     "endOffset": 308
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 48,
-                        "endOffset": 99
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
@@ -354,188 +319,125 @@
                     "startLine": 7,
                     "startColumn": 4,
                     "startOffset": 313,
-                    "endColumn": 126,
-                    "endOffset": 435
+                    "endColumn": 42,
+                    "endOffset": 351
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 4,
-                        "startOffset": 546,
-                        "endColumn": 126,
-                        "endOffset": 668
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 440,
+                    "startOffset": 356,
                     "endColumn": 55,
-                    "endOffset": 491
+                    "endOffset": 407
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 220,
-                        "endColumn": 55,
-                        "endOffset": 271
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 496,
-                    "endColumn": 61,
-                    "endOffset": 553
+                    "startOffset": 412,
+                    "endColumn": 126,
+                    "endOffset": 534
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 276,
-                        "endColumn": 61,
-                        "endOffset": 333
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 558,
-                    "endColumn": 58,
-                    "endOffset": 612
+                    "startOffset": 539,
+                    "endColumn": 55,
+                    "endOffset": 590
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 161,
-                        "endColumn": 58,
-                        "endOffset": 215
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 617,
-                    "endColumn": 26,
-                    "endOffset": 639
+                    "startOffset": 595,
+                    "endColumn": 61,
+                    "endOffset": 652
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 441,
-                        "endColumn": 34,
-                        "endOffset": 471
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 644,
-                    "endColumn": 113,
-                    "endOffset": 753
+                    "startOffset": 657,
+                    "endColumn": 58,
+                    "endOffset": 711
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 13,
-                        "startColumn": 4,
-                        "startOffset": 673,
-                        "endColumn": 113,
-                        "endOffset": 782
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 758,
-                    "endColumn": 56,
-                    "endOffset": 810
+                    "startOffset": 716,
+                    "endColumn": 26,
+                    "endOffset": 738
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 104,
-                        "endColumn": 56,
-                        "endOffset": 156
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 815,
-                    "endColumn": 58,
-                    "endOffset": 869
+                    "startOffset": 743,
+                    "endColumn": 113,
+                    "endOffset": 852
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 338,
-                        "endColumn": 58,
-                        "endOffset": 392
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 874,
-                    "endColumn": 69,
-                    "endOffset": 939
+                    "startOffset": 857,
+                    "endColumn": 56,
+                    "endOffset": 909
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 890,
-                        "endColumn": 69,
-                        "endOffset": 955
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 944,
-                    "endColumn": 39,
-                    "endOffset": 979
+                    "startOffset": 914,
+                    "endColumn": 56,
+                    "endOffset": 966
                 },
                 "from": {
                     "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 960,
-                        "endColumn": 39,
-                        "endOffset": 995
+                        "startOffset": 440,
+                        "endColumn": 56,
+                        "endOffset": 492
                     }
                 }
             },
@@ -543,95 +445,96 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 984,
-                    "endColumn": 45,
-                    "endOffset": 1025
+                    "startOffset": 971,
+                    "endColumn": 69,
+                    "endOffset": 1036
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 1000,
-                        "endColumn": 45,
-                        "endOffset": 1041
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1030,
-                    "endColumn": 33,
-                    "endOffset": 1059
+                    "startOffset": 1041,
+                    "endColumn": 39,
+                    "endOffset": 1076
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 512,
-                        "endColumn": 33,
-                        "endOffset": 541
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1064,
-                    "endColumn": 102,
-                    "endOffset": 1162
+                    "startOffset": 1081,
+                    "endColumn": 45,
+                    "endOffset": 1122
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 787,
-                        "endColumn": 102,
-                        "endOffset": 885
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 1167,
-                    "endColumn": 43,
-                    "endOffset": 1206
+                    "startOffset": 1127,
+                    "endColumn": 58,
+                    "endOffset": 1181
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 397,
-                        "endColumn": 43,
-                        "endOffset": 436
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 21,
                     "startColumn": 4,
-                    "startOffset": 1211,
-                    "endColumn": 35,
-                    "endOffset": 1242
+                    "startOffset": 1186,
+                    "endColumn": 33,
+                    "endOffset": 1215
                 },
                 "from": {
-                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 476,
-                        "endColumn": 35,
-                        "endOffset": 507
-                    }
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1220,
+                    "endColumn": 102,
+                    "endOffset": 1318
+                },
+                "from": {
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1323,
+                    "endColumn": 43,
+                    "endOffset": 1362
+                },
+                "from": {
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1367,
+                    "endColumn": 35,
+                    "endOffset": 1398
+                },
+                "from": {
+                    "file": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/values/strings.xml"
                 }
             }
         ]

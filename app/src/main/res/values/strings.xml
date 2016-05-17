@@ -3,10 +3,13 @@
     <string name="app_name">WiFi Direct</string>
     <string name="enable_p2p_button">P2P On/Off</string>
     <string name="discover_peers_button">Discover</string>
+    <string name="my_name">Please enter user name</string>
+    <string name="button_send">OK</string>
     <string name="connect_peer_button">Connect</string>
     <string name="disconnect_peer_button">Disconnect</string>
-    <string name="get_file_button">Launch Gallery</string>
+    <string name="get_file_button">Launch Audio</string>
     <string name="send_ip">Send Ip</string>
+    <string name="clear_ip_list">Clear Ip List</string>
     <string name="empty"></string>
     <string name="yes">yes</string>
     <string name="no">no</string>
