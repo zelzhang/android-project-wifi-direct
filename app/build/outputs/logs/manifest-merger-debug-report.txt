@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:2:1-35:12
+ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:2:1-38:12
 	package
 		ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:2:70-110
 		INJECTED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml
@@ -59,7 +59,7 @@ ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDire
 	android:name
 		ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:14:19-62
 application
-ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:16:5-34:19
+ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:16:5-37:19
 	android:label
 		ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:18:9-41
 	android:icon
@@ -90,3 +90,7 @@ ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDire
 		ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:32:18-40
 	android:name
 		ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:32:41-76
+activity#com.example.android.wifidirect.PlayListActivity
+ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:34:9-35:48
+	android:name
+		ADDED from /Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/AndroidManifest.xml:35:13-45

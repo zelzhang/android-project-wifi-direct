@@ -4,20 +4,156 @@
         "source": "/Users/ryan/StudioProjects/development-master-samples-WiFiDirectDemo1/app/src/main/res/drawable-xhdpi/ic_action_on_off.png"
     },
     {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/seekbar_progress_bg.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/seekbar_progress_bg.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_seekbar_bg.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_seekbar_bg.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/gradient_bg.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/gradient_bg.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/bg.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/bg.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_previous.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/btn_previous.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/bg_player_footer.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/bg_player_footer.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_previous.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_previous.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_play.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_play.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/gradient_bg_hover.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/gradient_bg_hover.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_next.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_next.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_forward_pressed.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_forward_pressed.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_pause.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/btn_pause.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_next.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/btn_next.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_backward_pressed.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_backward_pressed.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/rounded_corner.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/rounded_corner.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_action_on_off.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/ic_action_on_off.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_playlist.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_playlist.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/seekbar_progress.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/seekbar_progress.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_backward.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_backward.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/list_selector.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/list_selector.xml"
+    },
+    {
         "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png",
         "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/bg_player_header.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/bg_player_header.xml"
     },
     {
         "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_action_discover.png",
         "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/ic_action_discover.png"
     },
     {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_pause_pressed.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_pause_pressed.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/track_info_bg.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/track_info_bg.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_forward.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/btn_forward.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_playlist.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/btn_playlist.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_play.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/btn_play.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_forward.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_forward.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/seek_handler.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/seek_handler.png"
+    },
+    {
         "merged": "/Users/ryan/StudioProjects/development-master-samples-WiFiDirectDemo1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_action_discover.png",
         "source": "/Users/ryan/StudioProjects/development-master-samples-WiFiDirectDemo1/app/src/main/res/drawable-xhdpi/ic_action_discover.png"
     },
     {
-        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_action_on_off.png",
-        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/ic_action_on_off.png"
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_play_pressed.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_play_pressed.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_seekbar_progress_blue.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_seekbar_progress_blue.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_next_pressed.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_next_pressed.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_previous_pressed.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_previous_pressed.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/btn_backward.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/btn_backward.xml"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_playlist_pressed.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_playlist_pressed.png"
+    },
+    {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/img_btn_pause.png",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/drawable-xhdpi/img_btn_pause.png"
     },
     {
         "merged": "/Users/ryan/StudioProjects/development-master-samples-WiFiDirectDemo1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/ic_launcher.png",

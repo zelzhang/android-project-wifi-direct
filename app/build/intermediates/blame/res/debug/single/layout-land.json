@@ -4,6 +4,10 @@
         "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/layout-land/main.xml"
     },
     {
+        "merged": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/build/intermediates/res/merged/debug/layout-land/playlist_item.xml",
+        "source": "/Users/ryan/AndroidStudioProjects/development-master-samples-WiFiDirectDemo/app/src/main/res/layout-land/playlist_item.xml"
+    },
+    {
         "merged": "/Users/ryan/StudioProjects/development-master-samples-WiFiDirectDemo1/app/build/intermediates/res/merged/debug/layout-land/main.xml",
         "source": "/Users/ryan/StudioProjects/development-master-samples-WiFiDirectDemo1/app/src/main/res/layout-land/main.xml"
     }
