@@ -14,6 +14,7 @@ import java.util.*;
 
 public class Utility{
 
+
     public static final char file_type = 0;
     public static final char local_ip_type = 1;
     public static final char request_file_type = 2;
@@ -110,5 +111,25 @@ public class Utility{
                 cursor.close();
             }
         }
+    }
+    public static String secondToMinuteSecond(double second){
+        int min = (int)second/60;
+        String minS = (min<10)? "0"+min:""+min;
+        int sec = (int)second%60;
+        String secS = (sec<10)? "0"+sec:""+sec;
+        return minS + ":" + secS;
+    }
+    public static void updateSongTime(){
+        DeviceDetailFragment.songTimeString = secondToMinuteSecond(DeviceDetailFragment.startTime);
+    }
+    public static double ip2newTime(String peerIp){
+        String[] ipNames = peerIp.split("\\s+");
+        String song = ipNames[2];
+        int len = song.length();
+        int a= song.charAt(len-1) - '0';
+        int b= song.charAt(len-2) - '0';
+        int c= song.charAt(len-4) - '0';
+        int d= song.charAt(len-5) - '0';
+        return (double)(600*d+60*c+10*b+a+0.5);
     }
 }

@@ -53,6 +53,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.URI;
 
 /**
  * A fragment that manages a particular peer and allows interaction with device
@@ -73,14 +74,19 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
     private static final int MAX_IP_NUM = 10;
     public static String[] groupIps = new String[MAX_IP_NUM];
     public static String[] groupNames = new String[MAX_IP_NUM];
+    public static String[] groupSongs = new String[MAX_IP_NUM];
     private static boolean peerIpSent = false;
     public static boolean isGroupOwner = false;
     private boolean groupIpsChanged = false;
     private boolean isIpv4 = true;
-    private double startTime = 5.0;
-    private double endTime = 10.0;
-    private String splitString = "-";
-
+    public static double startTime = 0.0;
+    public static double endTime = Double.MAX_VALUE;
+    public static String localSong = "NO SONG";
+    public static String localSongTitle = "NO SONG-0.0";
+    private String splitString = "=";
+    public static String songTimeString = Utility.secondToMinuteSecond(startTime);
+    public static String nowPlayingSong = "";
+    public static int senderNum = 0;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -149,7 +155,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         String[] items = new String[ipsNum];
                         Log.d(WiFiDirectActivity.TAG, "ipsNum = " + ipsNum);
                         for (int i = 0; i < ipsNum; i++) {
-                            items[i] = groupNames[i] + " (" + groupIps[i] + ")";
+                            items[i] = groupNames[i] + " (" + groupIps[i] + "):\n" + groupSongs[i];
                             //if (groupNames[i] != null) items[i] = groupNames[i];
                             //else items[i] = groupIps[i];
                         }
@@ -172,6 +178,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         Log.d(WiFiDirectActivity.TAG, "localName = " + localName);
                         groupIps[0] = localIp;
                         groupNames[0] = localName;
+                        groupSongs[0] = localSong;
                         TextView view = (TextView) mContentView.findViewById(R.id.local_name);
                         view.setText("Local User Name - " + localName);
                         Log.d(WiFiDirectActivity.TAG, "Local User Name - " + localName);
@@ -189,11 +196,12 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         /*pop*/
 
                         for (int i = 0; i < ipsNum; i++) {
-                            groupNames[i] = groupNames[i] = null;
+                            groupSongs[i] = groupNames[i] = groupNames[i] = null;
                         }
                         ipsNum = 1;
                         groupIps[0] = localIp;
                         groupNames[0] = localName;
+                        groupSongs[0] = localSong;
 
 
                     }
@@ -216,13 +224,13 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 fileDstIp = groupIps[which];
-
+                senderNum = which;
                 Log.d(WiFiDirectActivity.TAG, "dstIp chosen: fileDstIp = " + fileDstIp);
 
                 // Allow user to pick an image from Gallery or other
                 // registered apps
                 try {
-                    sendIp(localIp, "", fileDstIp, FileTransferService.ACTION_REQUEST_FILE);
+                    sendIp(localIp, "", "", fileDstIp, FileTransferService.ACTION_REQUEST_FILE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -244,9 +252,10 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
             groupIpsChanged = false;
             groupIps[0] = localIp;
             groupNames[0] = localName;
+            groupSongs[0] = localSong;
             for(int i=1; i<ipsNum; i++) {
                 try {
-                    sendIp(groupIps, groupNames, groupIps[i], FileTransferService.ACTION_SEND_IP);
+                    sendIp(groupIps, groupNames, groupSongs, groupIps[i], FileTransferService.ACTION_SEND_IP);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -254,8 +263,11 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         }else{
             peerIpSent = true;
             try {
+                groupIps[0] = localIp;
+                groupNames[0] = localName;
+                groupSongs[0] = localSong;
                 Log.d(WiFiDirectActivity.TAG, "non-GO, send ip to GO now");
-                sendIp(localIp, localName, groupOwnerIp, FileTransferService.ACTION_SEND_IP);
+                sendIp(localIp, localName, localSong, groupOwnerIp, FileTransferService.ACTION_SEND_IP);
             } catch (Exception e) {
                 Log.d(WiFiDirectActivity.TAG, e.toString());
             }
@@ -264,12 +276,14 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
     }
 
 
-    private void sendIp(String[] sentIpAdr, String[] name, String dstIp, String action) throws Exception {
+
+
+    private void sendIp(String[] sentIpAdr, String[] name, String[] song, String dstIp, String action) throws Exception {
 
         String sentIpAdresses = "";
         int i;
         for(i=0; i<sentIpAdr.length-1; i++){
-            if(sentIpAdr[i] != null)sentIpAdresses = sentIpAdresses + sentIpAdr[i]+" "+name[i]+splitString;
+            if(sentIpAdr[i] != null)sentIpAdresses = sentIpAdresses + sentIpAdr[i]+" "+name[i]+" "+song[i]+splitString;
             else break;
         }
 
@@ -292,9 +306,9 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
     }
 
-    private void sendIp(String sentIpAdr, String name, String dstIp, String action) throws Exception {
+    private void sendIp(String sentIpAdr, String name, String song, String dstIp, String action) throws Exception {
         Log.d(WiFiDirectActivity.TAG, "send ip "+action);
-        sentIpAdr = sentIpAdr+" "+name+splitString;
+        sentIpAdr = sentIpAdr+" "+name+" "+song+splitString;
         //TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
         Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
         serviceIntent.setAction(action);
@@ -354,7 +368,12 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
         getActivity().startService(serviceIntent);
     }
-
+    public void changeSongTitle(){
+        Utility.updateSongTime();
+        localSong = localSongTitle + "-" + songTimeString;
+        groupSongs[0] = localSong;
+        if(ipsNum > 1) transferIps();
+    }
 
     @Override
     public void onConnectionInfoAvailable(final WifiP2pInfo info) {
@@ -393,6 +412,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         if(fileDstIp == null) fileDstIp = groupOwnerIp; //initialize fileDstIp
         groupIps[0] = localIp;
         groupNames[0] = localName;
+        groupSongs[0] = localSong;
 
         if(info.isGroupOwner && groupIpsChanged) transferIps();
         else if(!info.isGroupOwner && !peerIpSent) transferIps();
@@ -470,15 +490,18 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
         Log.d(WiFiDirectActivity.TAG, "new ip = " + ip);
         String name = ipNames[1];
+        String song = ipNames[2];
         for(int i=0; i<ipsNum; i++){
             if(ip.equals(groupIps[i])){
                 groupNames[i] = name;
+                groupSongs[i] = song;
                 Log.d(WiFiDirectActivity.TAG, "ip discarded");
                 return;
             }
         }
         groupIps[ipsNum] = ip;
         groupNames[ipsNum] = name;
+        groupSongs[ipsNum] = song;
         ipsNum++;
         Log.d(WiFiDirectActivity.TAG, "new ipsNum = " + ipsNum);
         groupIpsChanged = true;
@@ -518,6 +541,44 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
         ServerSocket serverSocket;
 
 
+        /*public void sendFile(String fileAddr, String dstIp, boolean isGroupOwner) {
+
+
+            //Uri uri = data.getData();
+            //TextView statusText = (TextView) mContentView.findViewById(R.id.status_text);
+            //statusText.setText("Sending: " + uri);
+            Log.d(WiFiDirectActivity.TAG, "Sending: " + fileAddr);
+
+            String pin = fileAddr;
+            Log.d(WiFiDirectActivity.TAG, "Sending: pin = " + pin);
+            File fin = new File(pin);
+            Log.d(WiFiDirectActivity.TAG, "fin exist = " + fin.exists());
+            File fout = new File(Utility.changeTmpPath(pin));
+            trimAudio(fin, fout, startTime, endTime);
+            Log.d(WiFiDirectActivity.TAG, "startTime = " + startTime);
+            Log.d(WiFiDirectActivity.TAG, "fout exist = " + fout.exists());
+
+
+            Uri uri = Uri.fromFile(fout);
+            Log.d(WiFiDirectActivity.TAG, "Sending tmp: " + uri);
+            Log.d(WiFiDirectActivity.TAG, "Sending tmp: " + uri.toString());
+
+            Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
+            serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
+            serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, uri.toString());
+            serviceIntent.putExtra(FileTransferService.EXTRAS_FINAL_DST_ADDRESS, dstIp);
+            if(isGroupOwner)
+                serviceIntent.putExtra(FileTransferService.EXTRAS_NEXT_DST_ADDRESS_ADDRESS, dstIp);
+            else
+                serviceIntent.putExtra(FileTransferService.EXTRAS_NEXT_DST_ADDRESS_ADDRESS, groupOwnerIp);
+            Log.d(WiFiDirectActivity.TAG, "Send image to ip = " + dstIp);
+            Log.d(WiFiDirectActivity.TAG, "Send image to port "  + Utility.port_num);
+
+            getActivity().startService(serviceIntent);
+
+
+        }*/
+
         public void forwardFile(Uri uri, String dstIp, boolean isGroupOwner) {
 
 
@@ -535,13 +596,19 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
             else
                 serviceIntent.putExtra(FileTransferService.EXTRAS_NEXT_DST_ADDRESS_ADDRESS, groupOwnerIp);
             Log.d(WiFiDirectActivity.TAG, "Send image to ip = " + dstIp);
-            Log.d(WiFiDirectActivity.TAG, "Send image to port "  + Utility.port_num);
+            Log.d(WiFiDirectActivity.TAG, "Send image to port " + Utility.port_num);
 
             getActivity().startService(serviceIntent);
 
 
         }
+        public void changePlayingSong(File file, double beginTime){
+            WiFiDirectActivity.title = file.getName();
+            WiFiDirectActivity.startTime = beginTime;
+            WiFiDirectActivity.path = file.getAbsolutePath();
+            WiFiDirectActivity.songChanged = true;
 
+        }
         /**
          * @param context
          * @param statusText
@@ -589,15 +656,17 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         Log.d(WiFiDirectActivity.TAG, "DeviceDetailFragment.isGroupOwner = "+DeviceDetailFragment.isGroupOwner);
 
 
-                        if(DeviceDetailFragment.isGroupOwner){
+                        if(DeviceDetailFragment.isGroupOwner && !finalDstIp.equals(info.groupOwnerAddress.getHostAddress()) ){
                             Log.d(WiFiDirectActivity.TAG, "Group Owner forward file to ip = "+ finalDstIp);
                             Log.d(WiFiDirectActivity.TAG, "Uri of f = "+Uri.fromFile(f));
                             if(finalDstIp != groupOwnerIp) forwardFile(Uri.fromFile(f), finalDstIp, true);
-                        }
-
+                        }else Log.d(WiFiDirectActivity.TAG, "NOT DeviceDetailFragment.isGroupOwner && !finalDstIp.equals(info.groupOwnerAddress.getHostAddress())");
+                        Double newTime = 0.0;//dStream.readDouble();
+                        changePlayingSong(f, newTime);
                         serverSocket.close();
                         Log.d(WiFiDirectActivity.TAG, "server: close");
-                        return f.getAbsolutePath();
+                        Log.d(WiFiDirectActivity.TAG, "newTime = " + newTime);
+                        return null;
 
                     case Utility.local_ip_type:
                         BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
@@ -635,7 +704,7 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
 
                         if(!finalDstIp.equals(localIp)) {
 
-                            sendIp(peerIp, "", finalDstIp, FileTransferService.ACTION_REQUEST_FILE);
+                            sendIp(peerIp, "", "",finalDstIp, FileTransferService.ACTION_REQUEST_FILE);
 
                             return null;
                         }
@@ -643,9 +712,12 @@ public class DeviceDetailFragment extends Fragment implements ConnectionInfoList
                         if(peerIp != null){
                             Log.d(WiFiDirectActivity.TAG, "peerIp != null");
                             fileDstIp = peerIp;
-                            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                            intent.setType("audio/*");
-                            startActivityForResult(intent, CHOOSE_FILE_RESULT_CODE);
+                            File file = new File(nowPlayingSong);
+                            Uri uri = Uri.fromFile(file);
+                            forwardFile(uri, fileDstIp, info.isGroupOwner);
+                            //Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                            //intent.setType("audio/*");
+                            //startActivityForResult(intent, CHOOSE_FILE_RESULT_CODE);
                             Log.d(WiFiDirectActivity.TAG, "pick image activity ends = ");
                         } else Log.d(WiFiDirectActivity.TAG, "peerIp is null");
 

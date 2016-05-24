@@ -85,7 +85,6 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
     private boolean isShuffle = false;
     private boolean isRepeat = false;
     private ArrayList<HashMap<String, String>> songsList = new ArrayList<HashMap<String, String>>();
-    public static String songTitle = "NO SONG";
 
 
     public static final String TAG = "wifidirectdemo";
@@ -96,6 +95,12 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
     private final IntentFilter intentFilter = new IntentFilter();
     private Channel channel;
     private BroadcastReceiver receiver = null;
+
+    public static String path;
+    public static String title;
+    public static boolean songChanged = false;
+    public static double startTime = 0.0;
+    int durationToSend = 5;
 
     /**
      * @param isWifiP2pEnabled the isWifiP2pEnabled to set
@@ -491,8 +496,14 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
             mp.prepare();
             mp.start();
             // Displaying Song title
-            songTitle = songsList.get(songIndex).get("songTitle");
+            String songTitle = songsList.get(songIndex).get("songTitle");
             songTitleLabel.setText(songTitle);
+            DeviceDetailFragment fragment = (DeviceDetailFragment) getFragmentManager()
+                    .findFragmentById(R.id.frag_detail);
+
+            fragment.localSongTitle = songTitle;
+            fragment.nowPlayingSong = songsList.get(songIndex).get("songPath");
+            fragment.changeSongTitle();
 
             // Changing Button Image to pause image
             btnPlay.setImageResource(R.drawable.btn_pause);
@@ -512,6 +523,44 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
         }
     }
 
+    public void  getNewSong(){
+        // Play song
+        try {
+            Log.d(WiFiDirectActivity.TAG, "mp path = "+path);
+            Log.d(WiFiDirectActivity.TAG, "mp title = "+title);
+            mp.reset();
+            mp.setDataSource(path);
+            mp.prepare();
+            mp.start();
+            // Displaying Song title
+            String songTitle = title;
+            songTitleLabel.setText(songTitle);
+            DeviceDetailFragment fragment = (DeviceDetailFragment) getFragmentManager()
+                    .findFragmentById(R.id.frag_detail);
+
+            fragment.localSongTitle = songTitle;
+            fragment.nowPlayingSong = path;
+            fragment.changeSongTitle();
+
+            // Changing Button Image to pause image
+            btnPlay.setImageResource(R.drawable.btn_pause);
+
+            // set Progress bar values
+            songProgressBar.setProgress(0);
+            songProgressBar.setMax(100);
+
+            // Updating progress bar
+            updateProgressBar();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    int oldTime = 0;
     /**
      * Update timer on seekbar
      * */
@@ -526,6 +575,19 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
         public void run() {
             long totalDuration = mp.getDuration();
             long currentDuration = mp.getCurrentPosition();
+
+            DeviceDetailFragment fragment = (DeviceDetailFragment) getFragmentManager()
+                    .findFragmentById(R.id.frag_detail);
+            fragment.startTime = currentDuration/1000;
+            if(fragment.startTime%durationToSend == 0 && fragment.startTime != oldTime){
+                oldTime = (int)fragment.startTime;
+                fragment.changeSongTitle();
+            }
+            if(songChanged){
+                getNewSong();
+                songChanged=false;
+            }
+
 
             // Displaying Total Duration time
             songTotalDurationLabel.setText(""+utils.milliSecondsToTimer(totalDuration));

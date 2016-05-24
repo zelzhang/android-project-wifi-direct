@@ -80,6 +80,7 @@ public class FileTransferService extends IntentService {
                 DataOutputStream dStream = new DataOutputStream(stream);
                 dStream.writeChar(Utility.file_type);
                 dStream.writeLong(finalDstIpLong);
+                dStream.writeFloat((float)DeviceDetailFragment.startTime);
 
                 try {
                     is = cr.openInputStream(Uri.parse(fileUri));
