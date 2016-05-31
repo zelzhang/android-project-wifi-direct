@@ -55,11 +55,11 @@ public class FileTransferService extends IntentService {
     protected void onHandleIntent(Intent intent) {
 
         String finalDstIp = intent.getExtras().getString(EXTRAS_FINAL_DST_ADDRESS);
-        Log.d(WiFiDirectActivity.TAG, "finalDstIp = "+finalDstIp);
+        //Log.d(WiFiDirectActivity.TAG, "finalDstIp = "+finalDstIp);
         long finalDstIpLong = Utility.convertIpv4ToLong(finalDstIp);
         String host = intent.getExtras().getString(EXTRAS_NEXT_DST_ADDRESS_ADDRESS);
-        Log.d(WiFiDirectActivity.TAG, "host = "+host);
-        Log.d(WiFiDirectActivity.TAG, "final ip long = "+finalDstIpLong);
+        //Log.d(WiFiDirectActivity.TAG, "host = "+host);
+        //Log.d(WiFiDirectActivity.TAG, "final ip long = "+finalDstIpLong);
 
         Socket socket = new Socket();
         Context context = getApplicationContext();
@@ -107,11 +107,11 @@ public class FileTransferService extends IntentService {
         }else if (intent.getAction().equals(ACTION_SEND_IP))  {
             String peerIp = intent.getExtras().getString(EXTRAS_IP_INFO);
             try {
-                Log.d(WiFiDirectActivity.TAG, "IP Opening client socket - ");
+                //Log.d(WiFiDirectActivity.TAG, "IP Opening client socket - ");
                 socket.bind(null);
                 socket.connect((new InetSocketAddress(host, port)), SOCKET_TIMEOUT);
 
-                Log.d(WiFiDirectActivity.TAG, "IP Client socket - " + socket.isConnected());
+                //Log.d(WiFiDirectActivity.TAG, "IP Client socket - " + socket.isConnected());
                 OutputStream stream = socket.getOutputStream();
                 DataOutputStream dStream = new DataOutputStream(stream);
                 dStream.writeChar(Utility.local_ip_type);
@@ -123,7 +123,7 @@ public class FileTransferService extends IntentService {
                 } catch (IOException e) {
                     Log.d(WiFiDirectActivity.TAG, e.toString());
                 }
-                Log.d(WiFiDirectActivity.TAG, "IP Client: Data written");
+                //Log.d(WiFiDirectActivity.TAG, "IP Client: Data written");
             } catch (IOException e) {
                 Log.e(WiFiDirectActivity.TAG, e.getMessage());
             } finally {
@@ -131,7 +131,7 @@ public class FileTransferService extends IntentService {
                     if (socket.isConnected()) {
                         try {
                             socket.close();
-                            Log.d(WiFiDirectActivity.TAG, "IP Client: closed");
+                            //Log.d(WiFiDirectActivity.TAG, "IP Client: closed");
                         } catch (IOException e) {
                             // Give up
                             e.printStackTrace();

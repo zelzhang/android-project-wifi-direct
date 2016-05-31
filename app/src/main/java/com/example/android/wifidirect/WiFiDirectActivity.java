@@ -43,6 +43,7 @@ import android.widget.Toast;
 
 import com.example.android.wifidirect.DeviceListFragment.DeviceActionListener;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,11 +97,11 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
     private Channel channel;
     private BroadcastReceiver receiver = null;
 
-    public static String path;
-    public static String title;
     public static boolean songChanged = false;
     public static double startTime = 0.0;
-    int durationToSend = 5;
+    int durationToSend = 1;
+    double delaySeconds = 0.5;
+    public static File playingFile;
 
     /**
      * @param isWifiP2pEnabled the isWifiP2pEnabled to set
@@ -154,6 +155,31 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
         playSong(0);
 
 
+        /* testing playSongByFile
+        File root = Environment.getExternalStorageDirectory();
+
+        int count = 0;
+        File file = null;
+
+        File[] files = root.listFiles();
+        for(int i = 0; i < files.length; i++) {
+            if (files[i].isDirectory()) {
+            } else {
+                if (files[i].getName().endsWith(".mp3") || files[i].getName().endsWith(".MP3")) {
+
+                    count++;
+                    if (count == 1) {
+                        file = files[i];
+                        break;
+                    }
+                }
+
+            }
+        }
+        Log.e("LOG", file.toString());
+        playSongByFile(file);
+
+        */
 
         /**
          * Play button click event
@@ -165,15 +191,15 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
             @Override
             public void onClick(View arg0) {
                 // check for already playing
-                if(mp.isPlaying()){
-                    if(mp!=null){
+                if (mp.isPlaying()) {
+                    if (mp != null) {
                         mp.pause();
                         // Changing button image to play button
                         btnPlay.setImageResource(R.drawable.btn_play);
                     }
-                }else{
+                } else {
                     // Resume song
-                    if(mp!=null){
+                    if (mp != null) {
                         mp.start();
                         // Changing button image to pause button
                         btnPlay.setImageResource(R.drawable.btn_pause);
@@ -193,6 +219,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
             public void onClick(View arg0) {
                 // get current song position
                 int currentPosition = mp.getCurrentPosition();
+                Log.d("LOG", Integer.toString(currentPosition));
                 // check if seekForward time is lesser than song duration
                 if(currentPosition + seekForwardTime <= mp.getDuration()){
                     // forward song
@@ -503,7 +530,9 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
 
             fragment.localSongTitle = songTitle;
             fragment.nowPlayingSong = songsList.get(songIndex).get("songPath");
+            //fragment.startTime = 0.0;
             fragment.changeSongTitle();
+            //fragment.sendNewSongToRequestIp();
 
             // Changing Button Image to pause image
             btnPlay.setImageResource(R.drawable.btn_pause);
@@ -523,42 +552,38 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
         }
     }
 
-    public void  getNewSong(){
-        // Play song
-        try {
-            Log.d(WiFiDirectActivity.TAG, "mp path = "+path);
-            Log.d(WiFiDirectActivity.TAG, "mp title = "+title);
-            mp.reset();
-            mp.setDataSource(path);
-            mp.prepare();
-            mp.start();
-            // Displaying Song title
-            String songTitle = title;
-            songTitleLabel.setText(songTitle);
-            DeviceDetailFragment fragment = (DeviceDetailFragment) getFragmentManager()
-                    .findFragmentById(R.id.frag_detail);
-
-            fragment.localSongTitle = songTitle;
-            fragment.nowPlayingSong = path;
-            fragment.changeSongTitle();
-
-            // Changing Button Image to pause image
-            btnPlay.setImageResource(R.drawable.btn_pause);
-
-            // set Progress bar values
-            songProgressBar.setProgress(0);
-            songProgressBar.setMax(100);
-
-            // Updating progress bar
-            updateProgressBar();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void playSongByFile(File file) {
+        String fileTitle = file.getName().substring(0, (file.getName().length() - 4));
+        // looping through playlist
+        for (int i = 0; i < songsList.size(); i++) {
+            // creating new HashMap
+            HashMap<String, String> song = songsList.get(i);
+            Log.d(WiFiDirectActivity.TAG, "find song = "+fileTitle+"; songTitle = "+song.get("songTitle")+"; i = "+i);
+            if (song.get("songTitle").equals(fileTitle)) {
+                playSong(i);
+                return;
+            }
         }
+        Log.d(WiFiDirectActivity.TAG, "no such song");
+        return;
     }
+
+    public void jumpTo(double dtime) {
+        Log.d(WiFiDirectActivity.TAG, "jumpTo = " + dtime);
+        int time = (int)(dtime*1000);
+        Log.d(WiFiDirectActivity.TAG, "to int = "+ time);
+        // check if seekForward time is lesser than song duration
+        if(time <= mp.getDuration()){
+            // forward song
+            Log.d(WiFiDirectActivity.TAG, "time = " + time);
+            mp.seekTo(time);
+        }else{
+            // forward to end position
+            mp.seekTo(mp.getDuration());
+        }
+        return;
+    }
+
 
     int oldTime = 0;
     /**
@@ -579,13 +604,19 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
             DeviceDetailFragment fragment = (DeviceDetailFragment) getFragmentManager()
                     .findFragmentById(R.id.frag_detail);
             fragment.startTime = currentDuration/1000;
-            if(fragment.startTime%durationToSend == 0 && fragment.startTime != oldTime){
-                oldTime = (int)fragment.startTime;
-                fragment.changeSongTitle();
+            if(fragment.requestConnected == true && currentDuration > totalDuration-400){
+                Log.d(WiFiDirectActivity.TAG, "request new song!");
+                fragment.requestAgain();
             }
-            if(songChanged){
-                getNewSong();
+            fragment.changeSongTitle();
+            //Log.d(WiFiDirectActivity.TAG, "runnable");
+            if(songChanged == true && playingFile != null){
+                Log.d(WiFiDirectActivity.TAG, "songChanged!");
+                playSongByFile(playingFile);
                 songChanged=false;
+
+                jumpTo(startTime+delaySeconds);
+
             }
 
 
@@ -657,8 +688,10 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
         } else{
             // no repeat or shuffle ON - play next song
             if(currentSongIndex < (songsList.size() - 1)){
-                playSong(currentSongIndex + 1);
-                currentSongIndex = currentSongIndex + 1;
+                if(DeviceDetailFragment.requestConnected == false){
+                    playSong(currentSongIndex + 1);
+                    currentSongIndex = currentSongIndex + 1;
+                }
             }else{
                 // play first song
                 playSong(0);

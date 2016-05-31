@@ -4,7 +4,6 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -46,15 +45,16 @@ public class SongsManager {
 	
 	/**
 	 * Class to filter files which are having .mp3 extension
-	 * */
+	 *
 	class FileExtensionFilter implements FilenameFilter {
 		public boolean accept(File dir, String name) {
 			return (name.endsWith(".mp3") || name.endsWith(".MP3"));
 		}
 	}
+	*/
 
 	/*add*/
-	ArrayList<File> audioReader(File root){
+	public ArrayList<File> audioReader(File root){
 		ArrayList<File> a = new ArrayList<>();
 
 		File[] files = root.listFiles();
